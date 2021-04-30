@@ -2,17 +2,17 @@
 
 ### How to use
 
-1 Clone this repository to your local env.
+1. Clone this repository to your local env.
 
 ```
 cd Desktop
 git clone https://github.com/tomohiroyoshida/SMT.git
 ```
 
-2 solve problem with SMT solver
-We would like to skip the explanation on how to set up Haskell environment here.
-We use GHC and Z3.
-If you want to solve killer [sudoku](https://en.wikipedia.org/wiki/Killer_sudoku) problem with [Z3](https://github.com/Z3Prover/z3), run the following commands:
+2. solve problem with SMT solver
+   We would like to skip the explanation on how to set up Haskell environment here.
+   We use GHC and Z3.
+   If you want to solve killer [sudoku](https://en.wikipedia.org/wiki/Killer_sudoku) problem with [Z3](https://github.com/Z3Prover/z3), run the following commands:
 
 ```
 cd SMT
