@@ -6,12 +6,19 @@ main = do
   str <- readFile file
   writeFile "smt.smt2"
     (declareFuns allVars
+    ++ "\n"
     ++ assert range
+    ++ "\n"
     ++ assert squareFormula
+    ++ "\n"
     ++ assert colFormula
+    ++ "\n"
     ++ assert rowFormula
+    ++ "\n"
     ++ assert (readCages str)
+    ++ "\n"
     ++ checkSat
+    ++ "\n"
     ++ getVals allVars)
 
 -- 論理式の実装
@@ -58,14 +65,14 @@ col :: Int ->  [Exp]
 col i = [Var j i | j <- [1..9]]
 
 -- 読み込み
-readVar :: String -> Exp
-readVar s = Var (toInt s `div` 10) (toInt s `mod` 10)
+readCages :: String -> Formula
+readCages s = And [readCage cage | cage <- lines s]
 
 readCage :: String -> Formula
 readCage s = Eq (Val (toInt (head (words s)))) (Plus [readVar str | str <- tail (words s)])
 
-readCages :: String -> Formula
-readCages s = And [readCage cage | cage <- lines s]
+readVar :: String -> Exp
+readVar s = Var (toInt s `div` 10) (toInt s `mod` 10)
 
 toInt :: String -> Int
 toInt s = (read s :: Int)
